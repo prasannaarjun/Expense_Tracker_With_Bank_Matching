@@ -16,7 +16,6 @@ __pycache__
 /front/.env
 
 # Backend generated files
-/backend/uploads/
 /backend/reports/
 
 # IDE specific

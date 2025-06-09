@@ -23,7 +23,6 @@ This project is a personal finance application designed to help users manage the
 *   **Authentication:** JWT (JSON Web Tokens)
 *   **Dependency Management:** Pipenv
 *   **Data Processing:** Pandas (for CSV parsing and report generation)
-*   **Migrations:** Alembic
 
 ### Frontend
 
@@ -70,14 +69,8 @@ Ensure you have the following installed:
     *   Replace `user`, `password`, `host`, `port`, and `dbname` with your PostgreSQL database credentials.
     *   Generate a strong `SECRET_KEY` (e.g., using `openssl rand -hex 32`).
 
-4.  **Run database migrations:**
-    Activate the pipenv shell and then run alembic migrations:
-    ```bash
-    pipenv shell
-    alembic upgrade head
-    exit
-    ```
-    *If you encounter issues with alembic, ensure it's installed and configured correctly.*
+4.  **Database Initialization (No Migrations):**
+    The database tables will be created automatically when the FastAPI application starts, based on the SQLAlchemy models defined in `models.py`. Ensure your database is running and accessible via the `DATABASE_URL`.
 
 5.  **Run the Backend Server:**
     ```bash
@@ -125,7 +118,6 @@ README.md
 requirements.txt
 
 backend/
-├── alembic/                  # Database migrations
 ├── routers/                  # API endpoints (auth, transactions, bank_transactions, matching)
 ├── schemas/                  # Pydantic models for data validation
 ├── utils/                    # Utility functions (e.g., bank_parser)
@@ -135,7 +127,6 @@ backend/
 ├── auth.py                   # Authentication utilities
 ├── config.py                 # Configuration settings
 ├── reports/                  # Generated reports
-├── uploads/                  # Uploaded files
 └── Pipfile                   # Pipenv dependency file
 
 front/
@@ -149,7 +140,8 @@ front/
 │   ├── vite-env.d.ts
 │   ├── App.tsx               # Main application component and routing
 │   ├── main.tsx              # React entry point
-│   └── theme.ts              # Material-UI theme definition
+│   └── styles/               # Global styles and theme configuration
+│       └── theme.ts          # Material-UI theme definition
 ├── index.html                # Main HTML file
 ├── package.json              # Node.js dependencies and scripts
 ├── tsconfig.json             # TypeScript configuration
