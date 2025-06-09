@@ -49,7 +49,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const register = async (username: string, email: string, password: string) => {
-    await apiClient.post('api/auth/register', { username, email, password });
+    await apiClient.post('/auth/register', { username, email, password });
   };
 
   return (
