@@ -1,0 +1,23 @@
+.env
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+*.pyzw
+.idea
+
+# Frontend
+/front/node_modules
+/front/dist
+/front/.env
+
+# Backend generated files
+/backend/uploads/
+/backend/reports/
+
+# IDE specific
+.vscode/
